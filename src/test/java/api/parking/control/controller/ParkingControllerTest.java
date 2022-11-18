@@ -35,7 +35,6 @@ public class ParkingControllerTest extends AbstractContainerBase{
 		// extract().response().body().prettyPrint(); //aqui é pra imprimir
 		// .statusCode(201) //verifica se o status code da requisição é 201, por exemplo
 	}
-
 	// extract().response().body().prettyPrint(); //aqui é pra imprimir
 	// statusCode verifica se o status code da requisição é 201, por exemplo
 
