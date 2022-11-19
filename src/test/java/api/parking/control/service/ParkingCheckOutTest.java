@@ -1,4 +1,4 @@
-package api.parking.control.controller.service;
+package api.parking.control.service;
 
 import java.time.LocalDateTime;
 import java.time.Month;

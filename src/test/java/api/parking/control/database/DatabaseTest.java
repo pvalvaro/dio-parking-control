@@ -1,4 +1,4 @@
-package api.parking.control.controller;
+package api.parking.control.database;
 
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
