@@ -4,21 +4,21 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 
 import api.parking.control.controller.dto.ParkingCreateDTO;
 import io.restassured.RestAssured;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class ParkingControllerTest extends AbstractContainerBase{
+@ActiveProfiles("postgres")
+public class ParkingControllerTest{
 
-	// mapemanto da porta aleatoria
 	@LocalServerPort
 	private int randomPort;
 
-	// preparo do rest assure
 	@BeforeEach
 	public void setUpTest() {
 		RestAssured.port = randomPort;
