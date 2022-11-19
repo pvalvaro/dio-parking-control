@@ -27,32 +27,30 @@ public class ParkingControllerTest extends AbstractContainerBase{
 	@Test
 	void whenFindAllThenCheckResult() {
 		RestAssured.given()
+		 	.auth().basic("user", "12345")
 			.when()
 			.get("/parking")
 			.then()
 			.statusCode(HttpStatus.OK.value());
-		// .body("license[0]", Matchers.equalTo("DMS-1111"));
-		// extract().response().body().prettyPrint(); //aqui é pra imprimir
-		// .statusCode(201) //verifica se o status code da requisição é 201, por exemplo
 	}
-	// extract().response().body().prettyPrint(); //aqui é pra imprimir
-	// statusCode verifica se o status code da requisição é 201, por exemplo
 
 	@Test
 	void whenCreateThenCheckIsCreated() {
 		var createDTO = new ParkingCreateDTO();
-		createDTO.setColor("AMARELO");
-		createDTO.setLicense("WRT-5555");
-		createDTO.setModel("BRASILIA");
-		createDTO.setState("SP");
+		createDTO.setColor("PRATA");
+		createDTO.setLicense("PLO-2H15");
+		createDTO.setModel("SANDERO GTLINE");
+		createDTO.setState("BAHIA");
 
 		RestAssured.given()
 			.when()
+			.auth().basic("user", "12345")
 			.contentType(MediaType.APPLICATION_JSON_VALUE)
 			.body(createDTO).post("/parking").then()
 			.statusCode(HttpStatus.CREATED.value())
-			.body("license", Matchers.equalTo("WRT-5555"))
-			.body("color", Matchers.equalTo("AMARELO"))
-			.body("state", Matchers.equalTo("SP"));
+			.body("license", Matchers.equalTo("PLO-2H15"))
+			.body("color", Matchers.equalTo("PRATA"))
+			.body("model", Matchers.equalTo("SANDERO GTLINE"))
+			.body("state", Matchers.equalTo("BAHIA"));
 	}
 }
